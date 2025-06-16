@@ -1,8 +1,8 @@
 "use client"
-import Canvas from "@/components/Canvas";
-import TopMenu from "@/components/TopMenu";
-import { ToolProvider } from "@/context/ToolContext";
-import { useState } from "react";
+// import Canvas from "@/components/Canvas";
+// import TopMenu from "@/components/TopMenu";
+// import { ToolProvider } from "@/context/ToolContext";
+// import { useState } from "react";
 
 export default function Home() {
   return (

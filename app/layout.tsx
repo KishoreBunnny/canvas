@@ -5,7 +5,7 @@ import TopMenu from "@/components/TopMenu";
 import Canvas from "@/components/Canvas";
 import { ToolProvider } from "@/context/ToolContext";
 
-const inter = Inter({ weight: ["400", "500", "600", "700", "800", "900"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Canvas",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  // children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {

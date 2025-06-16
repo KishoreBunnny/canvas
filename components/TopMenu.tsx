@@ -1,6 +1,6 @@
 "use client"
 import { useTool } from "@/context/ToolContext";
-import { ALargeSmall, Circle, Diamond, Eraser, GitBranchIcon, Github, Grab, Images, Menu, Minus, Moon, MousePointer, MoveRight, Pencil, Square, Sun } from "lucide-react"
+import { ALargeSmall, Circle, Diamond, Eraser, Github, Grab, Images, Menu, Minus, Moon, MousePointer, MoveRight, Pencil, Square, Sun } from "lucide-react"
 import Link from "next/link";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
@@ -60,7 +60,7 @@ const menuItems: menuItemsType = [
 ]
 
 
-function SideMenu({ setOpenSideMenu }: any) {
+function SideMenu({ setOpenSideMenu }:{ setOpenSideMenu: (open: boolean) => void }) {
     const { dark, setDark } = useTool()
     const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -94,7 +94,7 @@ function SideMenu({ setOpenSideMenu }: any) {
             window.removeEventListener("mousedown", handleClickOutside);
         }
 
-    }, [])
+    }, [setOpenSideMenu])
 
 
 

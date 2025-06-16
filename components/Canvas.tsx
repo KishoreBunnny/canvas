@@ -10,7 +10,7 @@ export default function Canvas() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [canvas, setCanvas] = useState<fabric.Canvas | null>(null);
 
-    const { tool, setTool,dark,setDark } = useTool()
+    const { tool, setTool,dark } = useTool()
 
     const drawingShape = useRef<fabric.Object | null>(null);
     const startPoint = useRef<fabric.Point | null>(null);
@@ -77,7 +77,7 @@ export default function Canvas() {
         if (tool === "pen") {
             canvas.isDrawingMode = true;
             canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-            canvas.freeDrawingBrush.color =dark? "#e5e5e5":"#171717",
+            canvas.freeDrawingBrush.color =dark? "#e5e5e5":"#171717";
             canvas.freeDrawingBrush.width = 2;
 
             return () => {
@@ -88,8 +88,8 @@ export default function Canvas() {
 
 
         if (tool === "eraser") {
-            const handleMouseDown = (opt: any) => {
-                const pointer = canvas.getPointer(opt.e);
+            const handleMouseDown = (opt: fabric.TEvent) => {
+                // const pointer = canvas.getPointer(opt.e);
                 const target = canvas.findTarget(opt.e);
                 if (target) {
                     canvas.remove(target);
@@ -116,7 +116,7 @@ export default function Canvas() {
         ];
         if (!drawingTools.includes(tool as DrawShapeType)) return;
 
-        const handleMouseDown = (opt: any) => {
+        const handleMouseDown = (opt:fabric.TEvent) => {
             const pointer = canvas.getPointer(opt.e);
             const shape = initShape(tool as DrawShapeType, pointer,dark);
             if (shape) {
@@ -139,7 +139,7 @@ export default function Canvas() {
             }
         };
 
-        const handleMouseMove = (opt: any) => {
+        const handleMouseMove = (opt: fabric.TEvent) => {
             if (!drawingShape.current || !startPoint.current) return;
             const pointer = canvas.getPointer(opt.e);
             resizeShape(tool as DrawShapeType, drawingShape.current, pointer, startPoint.current);
@@ -180,7 +180,7 @@ export default function Canvas() {
             canvas.off("mouse:move", handleMouseMove);
             canvas.off("mouse:up", handleMouseUp);
         };
-    }, [tool, canvas,dark]);
+    }, [tool, canvas,dark,setTool]);
 
 
 

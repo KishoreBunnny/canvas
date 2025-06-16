@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "serve out",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "postcss": "^8.5.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "serve": "^14.2.4",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
