@@ -124,21 +124,21 @@ export default function TopMenu() {
     const { tool, setTool } = useTool();
     // const openSideMenu = false
     return (
-        <menu className=" z-[9999]  fixed bg-transparent top-2 w-full h-[9vh]  flex justify-between items-center py-3 px-4 gap-2 " >
-            <section className=" w-[20%] h-full rounded-[16px] px-3 flex items-center   " >
+        <menu className=" z-[9999]  fixed bg-transparent top-2 w-full h-[9vh]  flex justify-between items-center py-3 lg:px-4 gap-2 " >
+            <section className="hidden lg:w-[20%] h-full rounded-[16px] px-3 lg:flex items-center   " >
                 <button onClick={() => {
                     if (openSideMenu) {
                         return setOpenSideMenu(false)
                     }
                     setOpenSideMenu(true)
                 }
-                } className="dark:hover:bg-neutral-900 hover:bg-neutral-300 bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300/90 relative transition-all ease-in-out cursor-pointer  py-2 px-2 rounded-lg " >
+                } className="dark:hover:bg-neutral-900 hover:bg-neutral-300 bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300/90 relative transition-all ease-in-out cursor-pointer  py-2 lg:px-2 rounded-lg " >
                     <Menu />
                 </button>
                 {!!openSideMenu && <SideMenu setOpenSideMenu={setOpenSideMenu} />}
             </section>
-            <section className=" w-auto h-full shadow-neutral-500 overflow-hidden text-neutral-700/90 dark:text-neutral-300/90  " >
-                <div className=" h-full w-full overflow-hidden rounded-[8px] bg-neutral-200 dark:bg-neutral-800 py-2 px-3 flex gap-1 items-center " >
+            <section className=" w-[100%] lg:w-auto h-full shadow-neutral-500 overflow-hidden text-neutral-700/90 dark:text-neutral-300/90  " >
+                <div className=" h-full w-full overflow-hidden rounded-[8px] bg-neutral-200 dark:bg-neutral-800 py-2 lg:px-3 flex gap-1 items-center " >
                     {
                         menuItems.map((item, idx) => (
                             <button onClick={() => {
@@ -154,7 +154,7 @@ export default function TopMenu() {
 
                 </div>
             </section>
-            <section className=" w-[20%] h-full rounded-[16px] flex gap-2 justify-center items-center " >
+            <section className="hidden w-[20%] h-full rounded-[16px] lg:flex gap-2 justify-center items-center " >
                 <Link target="_blank" className=" text-blue-500" href={"https://fabricjs.com/demos/"} >https://fabricjs.com/demos/</Link>
                 <Link target="_blank" className=" p-2 rounded-lg text-neutral-800 dark:text-neutral-200 bg-neutral-200 dark:bg-neutral-800 "  href={"https://github.com/canvas"} ><Github/></Link>
             </section>
