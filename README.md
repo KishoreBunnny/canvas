@@ -1,3 +1,3 @@
 a canvas drawing web app ,further implements of live collabs.
 
-![canvas-image](/canvas.png)
+![canvas-image](https://canvas-n67j.onrender.com/canvas.png)
